@@ -1,0 +1,37 @@
+Labs        192.168.10.0/25  hosts 192.168.10.1 - 192.168.10.126  bcast 192.168.10.127
+Staff       192.168.10.128/26  hosts 192.168.10.129 - 192.168.10.190  bcast 192.168.10.191
+Library     192.168.10.192/27  hosts 192.168.10.193 - 192.168.10.222  bcast 192.168.10.223
+WAN link    192.168.10.224/30  hosts 192.168.10.225 - 192.168.10.226  bcast 192.168.10.227
+next free address: 192.168.10.228
+
+--- verification with ipaddress ---
+Labs      192.168.10.0/25    mask 255.255.255.128  usable 126  first 192.168.10.1  last 192.168.10.126  broadcast 192.168.10.127
+Staff     192.168.10.128/26  mask 255.255.255.192  usable  62  first 192.168.10.129  last 192.168.10.190  broadcast 192.168.10.191
+Library   192.168.10.192/27  mask 255.255.255.224  usable  30  first 192.168.10.193  last 192.168.10.222  broadcast 192.168.10.223
+WAN link  192.168.10.224/30  mask 255.255.255.252  usable   2  first 192.168.10.225  last 192.168.10.226  broadcast 192.168.10.227
+any overlap between subnets: False
+all inside 192.168.10.0/24 : True
+addresses still free        : 28
+
+--- hostel network (60 hosts) ---
+60 hosts + 2 -> block of 64 (/26); free addresses left in the /24: 28
+next /26 boundary after 192.168.10.228 is 192.168.11.0 -> OUTSIDE the /24
+smallest change: give the hostel 192.168.11.0/26 (usable 62 ) from 192.168.11.0/24; campus summary becomes 192.168.10.0/23
+
+--- alternative: smallest subnet first ---
+naive (no alignment):
+  WAN link  start 192.168.10.0    size   4
+  Library   start 192.168.10.4    size  32  <-- misaligned: /27 containing it starts at 192.168.10.0
+  Staff     start 192.168.10.36   size  64  <-- misaligned: /26 containing it starts at 192.168.10.0
+  Labs      start 192.168.10.100  size 128  <-- misaligned: /25 containing it starts at 192.168.10.0
+aligned smallest-first:
+  WAN link  192.168.10.0/30  (wasted gap before it: 0)
+  Library   192.168.10.32/27  (wasted gap before it: 28)
+  Staff     192.168.10.64/26  (wasted gap before it: 0)
+  Labs      192.168.10.128/25  (wasted gap before it: 0)
+  total wasted in gaps: 28 | next free: 192.168.11.0
+
+--- route summarisation ---
+collapse 172.16.8-11.0/24 -> [IPv4Network('172.16.8.0/22')]
+172.16.8.0/21 covers 172.16.8.0 - 172.16.15.255 = 8 x /24 networks, but only 5 exist
+not owned but attracted: ['172.16.13.0/24', '172.16.14.0/24', '172.16.15.0/24']

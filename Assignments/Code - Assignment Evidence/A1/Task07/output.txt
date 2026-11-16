@@ -1,0 +1,26 @@
+transmitted: 1101011011100
+no error   : True
+1-bit error: False
+3-bit burst: False
+
+--- extra work ---
+CRC bits for 1101011011 : 100
+received 1101011011101 remainder: 001 -> REJECTED
+undetected patterns with <= 4 flipped bits in a 13-bit frame: 145
+  error pattern 1000000100000 weight 2 -> accepted (undetected)
+  error pattern 0100000010000 weight 2 -> accepted (undetected)
+  error pattern 0010000001000 weight 2 -> accepted (undetected)
+  error pattern 0001000000100 weight 2 -> accepted (undetected)
+  error pattern 0000100000010 weight 2 -> accepted (undetected)
+  error pattern 0000010000001 weight 2 -> accepted (undetected)
+
+even-parity frame: 11010110111
+2-bit adjacent                         pattern 1100000000000  CRC-3 detects   parity MISSES
+2-bit, 7 apart                         pattern 1000000100000  CRC-3 MISSES   parity MISSES
+4-bit pattern 11101 (x^4+x^3+x^2+1)    pattern 0011101000000  CRC-3 MISSES   parity MISSES
+4-bit burst 1111                       pattern 0001111000000  CRC-3 detects   parity MISSES
+3-bit pattern 0000000001011 (= generator): CRC MISSES | parity detects
+
+2-D parity block: ['1011', '0110', '1100', '0101'] row parity [1, 0, 0, 0] column parity [0, 1, 0, 0] corner parity 1
+
+Internet checksum: sum = 0x8573, ones-complement = 0x7a8c

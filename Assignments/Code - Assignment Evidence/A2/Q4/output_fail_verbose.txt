@@ -1,0 +1,27 @@
+initial (direct neighbours only)
+    A  B  C  D  E
+A    0  2  7 99 99
+B    2  0  3  8 99
+C    7  3  0 99 99
+D   99  8 99  0  4
+E   99 99 99  4  0
+after round 1
+    A  B  C  D  E
+A    0  2  5 10 99
+B    2  0  3  8 12
+C    5  3  0 11 99
+D   10  8 11  0  4
+E   99 12 99  4  0
+after round 2
+    A  B  C  D  E
+A    0  2  5 10 14
+B    2  0  3  8 12
+C    5  3  0 11 15
+D   10  8 11  0  4
+E   14 12 15  4  0
+converged after 3 rounds
+A  0  2  5 10 14
+B  2  0  3  8 12
+C  5  3  0 11 15
+D 10  8 11  0  4
+E 14 12 15  4  0

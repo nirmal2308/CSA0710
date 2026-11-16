@@ -1,0 +1,12 @@
+Campus LAN, 200 m, 1 Gbps       a =    0.08  stop-and-wait  85.7%  W=7 100.0%  W=127 100.0%
+City fibre, 50 km, 1 Gbps       a =   20.83  stop-and-wait   2.3%  W=7  16.4%  W=127 100.0%
+Satellite, 36,000 km, 10 Mbps   a =  150.00  stop-and-wait   0.3%  W=7   2.3%  W=127  42.2%
+
+--- head-office link: 400 km, 1 Gbps, 1,500-byte frames ---
+transmission time 12.0 us, propagation time 2.00 ms, a = 166.67
+stop-and-wait utilisation 0.2991% -> 2.99 Mbps
+smallest window for 100% use: 1 + 2a = 334.33 -> W = 335
+Go-Back-N bits: 9 | Selective Repeat bits: 10
+Selective Repeat W=64: utilisation 19.14%, throughput 191.4 Mbps, receiver buffer 96,000 bytes
+Full window receiver buffer 502,500 bytes
+satellite: a = 150 -> smallest window for 100% = 301

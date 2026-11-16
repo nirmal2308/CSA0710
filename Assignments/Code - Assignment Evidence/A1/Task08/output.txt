@@ -1,0 +1,14 @@
+codeword       : 0110011
+error at None: syndrome 0, data 1011
+error at 5   : syndrome 5, data 1011
+
+--- two-bit error: the decoder 'corrects' the wrong bit ---
+flip positions 2 and 5: received 0010111  syndrome 7  decoded data 1110  (sent 1011)  -> WRONG
+flip positions 1 and 4: received 1111011  syndrome 5  decoded data 1111  (sent 1011)  -> WRONG
+flip positions 3 and 6: received 0100001  syndrome 5  decoded data 0101  (sent 1011)  -> WRONG
+
+worked example from the task: received 0110111
+syndrome (error position): 5  corrected data: 1011
+
+FEC : 21 bits/reading, residual (2+ bit) error probability 2.07e-04, extra delay 0 ms (no waiting)
+ARQ : 24 bits/attempt, P(retransmit) = 0.0237, attempts/reading 1.0243, bits/reading 24.58, average extra delay 0.972 ms

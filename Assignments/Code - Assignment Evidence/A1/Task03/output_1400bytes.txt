@@ -1,0 +1,7 @@
+Application  adds HTTP -> 1407 bytes
+Transport    adds TCP  -> 1413 bytes
+Network      adds IP   -> 1418 bytes
+Data link    adds ETH  -> 1428 bytes
+on the wire: [ETH│[IP│[TCP│[HTTP│xxxxxxxxxx...xxxxxxxxxxxxxxxxxxxxxx]]]│FCS]
+delivered  : 1400 bytes (OK)
+overhead   : 28 bytes for 1400 bytes of data (2.0% of the frame)
